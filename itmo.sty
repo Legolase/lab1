@@ -1,0 +1,99 @@
+% itmo.sty
+
+\def\filename{itmo}
+\def\fileversion{1.5}
+\def\filedate{2014/11/22}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage[nottoc]{tocbibind}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=20mm, bottom=40mm, left=30mm, right=20mm]{geometry}
+\usepackage[singlelinecheck=false,labelsep=period]{caption}
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+\restylefloat{figure}
+\linespread{1.3}
+\setlength{\parindent}{15mm}
+\renewcommand{\labelitemi}{---}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+\ProvidesPackage{\filename}
+
+\newcommand{\kafedra}[1]{\def\@kafedra{#1}}
+\kafedra{}
+
+\newcommand{\variant}[1]{\def\@variant{#1}}
+\variant{}
+
+\newcommand{\authorfem}[1]{\def\@authorfem{#1}}
+\authorfem{}
+
+\newcommand{\authors}[1]{\def\@authors{#1}}
+\authors{}
+
+\newcommand{\prepod}[1]{\def\@prepod{#1}}
+\prepod{}
+
+\renewcommand{\@maketitle}
+{
+    \begin{titlepage}
+    
+    \begin{center}
+    
+    {\small Национальный исследовательский университет \\ информационных технологий, механики и оптики\\
+    \ifx \@kafedra \@empty
+        \relax
+    \else
+        \vspace{1em}
+        \@kafedra
+    \fi}
+    
+    \vfill
+    
+    {\LARGE {\bf \@title \\}}
+    \ifx \@variant \@empty
+        \relax
+    \else
+        \vspace{1em}
+        {\large {\bf \@variant \\}}
+    \fi
+    \end{center}
+
+    \vfill
+    
+    \begin{flushright}
+        {\normalsize
+        \ifx \@authors \@empty
+            \ifx \@authorfem \@empty
+                Выполнил:\\
+                \@author\\
+            \else
+                Выполнила:\\
+                \@authorfem\\
+            \fi
+        \else
+            Выполнили:\\
+            \@authors\\
+        \fi
+        \vspace{1em}
+        Преподаватель:\\
+        \@prepod\\}
+    \end{flushright}
+
+    \vfill
+    
+    \begin{center}
+        {\small Санкт-Петербург \\ \the\year}
+    \end{center}
+
+    \end{titlepage}
+    \newpage
+    \setcounter{page}{2}
+}
