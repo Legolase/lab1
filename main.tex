@@ -9,7 +9,7 @@
 % \author{Пичугин~Н., гр.~3106}
 \authors{Дроботов~И.B. M~3232 \\ Бандурин~В.A. M~3232 \\ Ларский~Н.А. M~3232}
 %\authorfem{Процаенко~О., гр.~3106}
-\prepod{Свинцов~М.В.}
+\prepod{Казанков~В.К.}
 \maketitle
 
 \tableofcontents
@@ -380,11 +380,23 @@
 
 Под конец добавлю график отношения количества итераций у методов к расстоянию стартовой точки до ответа.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\textwidth]{image/difference.png}
-\end{figure}
+\newpage
 
+\begin{enumerate}
+    \item $f(x, y) = x^2 + y^2$
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/difference.png}
+    \end{figure}
+    
+    \item $f(x, y) = 0.1x^2 + 0.1y^2$
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/difference-2.png}
+    \end{figure}
+\end{enumerate}
+
+Можно заметить, что чем меньше параметр (a) у квадратичной функции, то различия в количистве ходов для каждого метода будут только усиливаться.
 \end{enumerate}
 
 \section{Вывод}

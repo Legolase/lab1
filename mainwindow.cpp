@@ -30,7 +30,7 @@ void MainWindow::start()
 {
     // testing functions
     func_t f1 = [](qreal const x) {
-        return x * x;
+        return 0.1 * x * x;
     };
     func_t f2 = f1;
 
@@ -40,7 +40,7 @@ void MainWindow::start()
     v<qreal> value_optimal;
     v<qreal> point;
 
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 10000; ++i) {
         point = details::get_start(i);
         key.push_back(i);
         value_const.push_back(gradient_decent({f1, f2}, point, 0.1, 1000).size());
@@ -128,7 +128,7 @@ v<v<qreal> > MainWindow::gradient_decent_with_dihotomy(const v<func_t> & funcs, 
         while (grad(funcs[i], start[i] - m * grd) * grd >= 0) {
             m *= 2;
         }
-        b[i] = start[i] - 2 * m * grd;
+        b[i] = start[i] - m * grd;
 
         if (a[i] > b[i]) std::swap(a[i], b[i]);
     }
